@@ -44,20 +44,6 @@ return [
         ],
 
         'mysql' => [
-            'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'postgres'),
-            'username' => env('DB_USERNAME', 'admin'),
-            'password' => env('DB_PASSWORD', 'dupa123'),
-            'charset' => 'utf8',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'schema' => 'public',
-            'sslmode' => 'prefer',
-
-            /*
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -74,9 +60,16 @@ return [
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-            ]) : [],*/
+            ]) : [],
         ],
-
+        /*
+        if php artisan uses wrong database connection execute this three commands:
+            php artisan clear-compiled 
+            composer dump-autoload
+            php artisan optimize
+        
+        also, remember to turn on pdo_pgsql extension in php.ini
+        */ 
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
