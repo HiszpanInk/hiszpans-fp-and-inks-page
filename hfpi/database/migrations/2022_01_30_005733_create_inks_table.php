@@ -15,6 +15,7 @@ class CreateInksTable extends Migration
     {
         Schema::create('inks', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }
